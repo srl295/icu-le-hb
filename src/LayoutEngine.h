@@ -1,5 +1,6 @@
 /*
- * (C) Copyright IBM Corp. 1998-2011 - All Rights Reserved
+ * (C) Copyright IBM Corp. and others 1998-2013 - All Rights Reserved
+ * (C) Copyright Google, Inc. 2012-2013 - All Rights Reserved
  */
 
 #ifndef __LAYOUTENGINE_H
@@ -13,7 +14,7 @@ struct hb_buffer_t;
 U_NAMESPACE_BEGIN
 
 class LEFontInstance;
-
+class LEGlyphStorage;
 
 /**
  * This is a class used to do complex text layout. The text must all
@@ -49,12 +50,9 @@ public:
 private:
 
    hb_font_t *fHbFont;
-
    hb_buffer_t *fHbBuffer;
-
+   LEGlyphStorage *fGlyphStorage;
    le_int32 fTypoFlags;
-
-   float x, y;
 
 #ifndef U_HIDE_INTERNAL_API
     /**
